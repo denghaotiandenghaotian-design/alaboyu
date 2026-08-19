@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>佳佳 · 阿拉伯语零基础学习系统</title>
+<link rel="stylesheet" href="styles.css">
+<!-- Mermaid / Chart.js 通过 CDN 加载，失败时自动降级，不影响其余功能 -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+<div class="app">
+  <!-- 侧边导航 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h1>佳佳 · 阿拉伯语</h1>
+      <p>ZERO → A1/A2</p>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="grp">地基</div>
+      <a data-view="alphabet"><span class="ic">🔤</span>字母 · 键盘</a>
+      <div class="grp">教材与词库</div>
+      <a data-view="textbooks"><span class="ic">📕</span>教材书目</a>
+      <a data-view="words"><span class="ic">🔠</span>单词学习</a>
+      <a data-view="sentences"><span class="ic">💬</span>句子学习</a>
+      <a data-view="scenes"><span class="ic">🗺️</span>情景板块</a>
+      <div class="grp">每日 & 训练</div>
+      <a data-view="daily"><span class="ic">☀️</span>每日一练</a>
+      <a data-view="selftest"><span class="ic">🎯</span>综合自测</a>
+      <a data-view="speak"><span class="ic">🗣️</span>口语练习</a>
+      <a data-view="listen"><span class="ic">🎧</span>听力训练</a>
+      <a data-view="articles"><span class="ic">📖</span>课文阅读</a>
+      <div class="grp">复习体系</div>
+      <a data-view="points"><span class="ic">📚</span>考点库</a>
+      <a data-view="plan"><span class="ic">🗓️</span>复习计划</a>
+      <a data-view="mindmap"><span class="ic">🧠</span>思维导图</a>
+      <a data-view="recite"><span class="ic">📝</span>背诵打卡</a>
+      <div class="grp">统揽</div>
+      <a data-view="dashboard"><span class="ic">📊</span>进度看板</a>
+      <a data-view="settings"><span class="ic">⚙️</span>全局设置</a>
+      <a data-view="about"><span class="ic">ℹ️</span>关于 / 提示词</a>
+    </nav>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- 主区 -->
+  <div class="main">
+    <div class="topbar">
+      <div class="fl-between" style="width:100%">
+        <div class="fl-between" style="gap:10px">
+          <button class="menu-btn" id="menuBtn">☰</button>
+          <span class="title" id="viewTitle">字母 · 键盘</span>
+        </div>
+        <div class="right">
+          <span class="badge gold" id="levelBadge">A1</span>
+          <button class="btn ghost sm" onclick="App.resetAll()">重置数据</button>
+        </div>
+      </div>
+    </div>
+    <div class="content" id="content"><!-- 视图渲染区 --></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="modal-bg" id="modalBg"><div class="modal" id="modal"></div></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
